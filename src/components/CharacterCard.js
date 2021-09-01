@@ -1,18 +1,10 @@
 import React from "react";
-import { Link, Router } from "@reach/router";
-import SingleCharacter from "./SingleCharacter";
 
 function CharacterCard(props) {
   return (
     <div>
-      <Link to="/SingleCharacter">
-        <h1>{props.chars.name}</h1>
-        <img src={props.chars.image} alt="billede af karakter" />
-      </Link>
-
-      <Router>
-        <SingleCharacter path="/SingleCharacter/:id" />
-      </Router>
+      <h1>{props.data.name}</h1>
+      <img src={props.data.image} alt="billede af karakter" />
     </div>
   );
 }

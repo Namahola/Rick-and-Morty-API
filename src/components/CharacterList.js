@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CharacterCard from "./CharacterCard.js";
+import { Link } from "@reach/router";
 
 function CharList() {
-  const url = "https://rickandmortyapi.com/api/character";
-  const [CharacterList, setCharacterList] = useState([]);
+  const [characterList, setCharacterList] = useState([]);
 
   useEffect(() => {
+    const url = "https://rickandmortyapi.com/api/character";
     axios
       .get(url)
       .then((response) => {
@@ -20,8 +21,12 @@ function CharList() {
 
   return (
     <div>
-      {CharacterList.map((chars, id) => {
-        return <CharacterCard key={id} chars={chars} />;
+      {characterList.map((data) => {
+        return (
+          <Link key={data.id} to={`/character/${data.id}`}>
+            <CharacterCard data={data} />
+          </Link>
+        );
       })}
     </div>
   );

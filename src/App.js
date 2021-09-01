@@ -1,6 +1,7 @@
 import "./App.css";
 import { Link, Router } from "@reach/router";
 import Home from "./components/Home";
+import SingleCharacter from "./components/SingleCharacter";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Link to="/">Home</Link>
       <Router>
         <Home path="/" />
+        <SingleCharacter path="/character/:id" />
       </Router>
     </div>
   );
